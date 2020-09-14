@@ -39,7 +39,6 @@ async def main(port: int, addr: str, max_packets: int, log_file: Path):
                 pass
                 # print(f"{i} total messages received")
             print(data) 
-#this will show the data on the command window,,, finally works
-    #hashtaaggin this out so it doesnt bother me in the cmd prompt    
-    #f.write(data)
+#this will show the data on the command window,,, finally works  
+        f.write(data)
         f.close()
