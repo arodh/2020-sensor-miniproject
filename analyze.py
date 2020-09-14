@@ -23,7 +23,9 @@ def load_data(file: Path) -> T.Dict[str, pandas.DataFrame]:
     temperature = {}
     occupancy = {}
     co2 = {}
-
+#I will be leaving myself notes like this to try an understand what is happening
+#r is a command for the opening a file for reading
+#Json.loads  will take a string and returns a json object
     with open(file, "r") as f:
         for line in f:
             r = json.loads(line)
@@ -33,7 +35,20 @@ def load_data(file: Path) -> T.Dict[str, pandas.DataFrame]:
             temperature[time] = {room: r[room]["temperature"][0]}
             occupancy[time] = {room: r[room]["occupancy"][0]}
             co2[time] = {room: r[room]["co2"][0]}
-
+        temp = []
+#so i neeed to make a loop that goes through all the info and organizes it 
+#there are python commands that can calculate the mean and variance for you  
+        for k,v in temperature.items():
+#.items() is used to return the list w/all dict. keys w/values
+            temp.append(list(v.values())[0])
+        tempDF = pandas.DataFrame(temp)
+        tempMed = tempDF.median()
+        tempVar = tempDF.var()
+        print("Median is: ", tempMed[0])
+        print("Variance is: ",tempVar[0])
+#The top code should give the median and variance of the temp
+            
+     #sorts objects by labels along the given axis       
     data = {
         "temperature": pandas.DataFrame.from_dict(temperature, "index").sort_index(),
         "occupancy": pandas.DataFrame.from_dict(occupancy, "index").sort_index(),
