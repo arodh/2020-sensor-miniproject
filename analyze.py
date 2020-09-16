@@ -86,7 +86,7 @@ if __name__ == "__main__":
         plt.xlabel("Time (seconds)")
             """
 ###
-    plt.figure()
+plt.figure()
         data[k]['office'].plot.density()
         plt.title('Probability Density Functions for ' + k)
         if k == 'temperature':
