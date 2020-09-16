@@ -87,5 +87,5 @@ if __name__ == "__main__":
         plt.figure()
         plt.hist(np.diff(time.values).astype(np.int64) // 1000000000)
         plt.xlabel("Time (seconds)")
-'''
     plt.show()
+'''
