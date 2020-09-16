@@ -76,10 +76,9 @@ if __name__ == "__main__":
     P = p.parse_args()
 
     file = Path(P.file).expanduser()
-'''
     
     data = load_data(file)
-'''
+    
     for k in data:
         # data[k].plot()
         time = data[k].index
