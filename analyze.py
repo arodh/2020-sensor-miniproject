@@ -87,14 +87,14 @@ if __name__ == "__main__":
             """
 ###
 plt.figure()
-        data[k]['office'].plot.density()
-        plt.title('Probability Density Functions for ' + k)
+data[k]['office'].plot.density()
+    plt.title('Probability Density Functions for ' + k)
         if k == 'temperature':
             plt.xlabel('Temperature/°C')
         elif k == 'occupancy':
             plt.xlabel('No. of People')
         elif k == 'co2':
-            plt.xlabel('co2 level')
+    plt.xlabel('co2 level')
 ###
     time = data['temperature'].index
     time_series = pandas.Series([t.total_seconds() for t in (time[1:] - time[:-1])])
