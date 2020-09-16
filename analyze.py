@@ -47,6 +47,16 @@ def load_data(file: Path) -> T.Dict[str, pandas.DataFrame]:
         print("Median is: ", tempMed[0])
         print("Variance is: ",tempVar[0])
 #The top code should give the median and variance of the temp
+
+        occu = []
+        for k,v in occupancy.items():
+            occu.append(list(v.values())[0])
+        occuDF = pandas.DataFrame(occu)
+        occuMedian = occuDF.median()
+        occuVar = occuDF.var()
+        print("Median is: ",occuMedian[0])
+        print("Variance is: ",occuVar[0])
+#This above section gives the mediance and variance of occupancy
             
      #sorts objects by labels along the given axis       
     data = {
