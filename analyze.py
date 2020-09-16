@@ -69,14 +69,16 @@ def load_data(file: Path) -> T.Dict[str, pandas.DataFrame]:
 
 
 if __name__ == "__main__":
+    '''
     p = argparse.ArgumentParser(description="load and analyse IoT JSON data")
     p.add_argument("file", help="path to JSON data file")
     P = p.parse_args()
 
     file = Path(P.file).expanduser()
-
+'''
+    
     data = load_data(file)
-
+'''
     for k in data:
         # data[k].plot()
         time = data[k].index
@@ -84,5 +86,5 @@ if __name__ == "__main__":
         plt.figure()
         plt.hist(np.diff(time.values).astype(np.int64) // 1000000000)
         plt.xlabel("Time (seconds)")
-
+'''
     plt.show()
