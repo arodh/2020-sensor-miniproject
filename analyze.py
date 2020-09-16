@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 filer = open('data.txt')
-def load_data(data: Path) -> T.Dict[str, pandas.DataFrame]:
+def load_data(file: Path) -> T.Dict[str, pandas.DataFrame]:
 
     temperature = {}
     occupancy = {}
@@ -86,15 +86,16 @@ if __name__ == "__main__":
         plt.xlabel("Time (seconds)")
             """
 ###
-plt.figure()
-data[k]['office'].plot.density()
-    plt.title('Probability Density Functions for ' + k)
+        plt.figure()
+        data[k]['office'].plot.density()
+        plt.title('Probability Density Functions for ' + k)
         if k == 'temperature':
             plt.xlabel('Temperature/°C')
         elif k == 'occupancy':
             plt.xlabel('No. of People')
         elif k == 'co2':
-    plt.xlabel('co2 level')
+            
+            plt.xlabel('co2 level')
 ###
     time = data['temperature'].index
     time_series = pandas.Series([t.total_seconds() for t in (time[1:] - time[:-1])])
