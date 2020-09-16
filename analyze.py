@@ -17,9 +17,8 @@ import typing as T
 import matplotlib.pyplot as plt
 import numpy as np
 
-filer = open('data.txt')
 
-def load_data(file: Path) -> T.Dict[str, pandas.DataFrame]:
+def load_data(data: Path) -> T.Dict[str, pandas.DataFrame]:
 
     temperature = {}
     occupancy = {}
@@ -27,7 +26,7 @@ def load_data(file: Path) -> T.Dict[str, pandas.DataFrame]:
 #I will be leaving myself notes like this to try an understand what is happening
 #r is a command for the opening a file for reading
 #Json.loads  will take a string and returns a json object
-    with open(file, "r") as f:
+    with open(data, "r") as f:
         for line in f:
             r = json.loads(line)
             room = list(r.keys())[0]
