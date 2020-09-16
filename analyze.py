@@ -26,7 +26,7 @@ def load_data(data: Path) -> T.Dict[str, pandas.DataFrame]:
 #I will be leaving myself notes like this to try an understand what is happening
 #r is a command for the opening a file for reading
 #Json.loads  will take a string and returns a json object
-'''
+
     with open('data.txt', "r") as f:
         for line in f:
             r = json.loads(line)
@@ -36,33 +36,14 @@ def load_data(data: Path) -> T.Dict[str, pandas.DataFrame]:
             temperature[time] = {room: r[room]["temperature"][0]}
             occupancy[time] = {room: r[room]["occupancy"][0]}
             co2[time] = {room: r[room]["co2"][0]}
-'''
+
             temp = []
 
-'''
+
 #so i neeed to make a loop that goes through all the info and organizes it 
 #there are python commands that can calculate the mean and variance for you  
-        for k,v in temperature.items():
-#.items() is used to return the list w/all dict. keys w/values
-            temp.append(list(v.values())[0])
-        tempDF = pandas.DataFrame(temp)
-        tempMed = tempDF.median()
-        tempVar = tempDF.var()
-        print("Median is: ", tempMed[0])
-        print("Variance is: ",tempVar[0])
-#The top code should give the median and variance of the temp
-'''
-        occu = []
-'''
-        for k,v in occupancy.items():
-            occu.append(list(v.values())[0])
-        occuDF = pandas.DataFrame(occu)
-        occuMedian = occuDF.median()
-        occuVar = occuDF.var()
-        print("Median is: ",occuMedian[0])
-        print("Variance is: ",occuVar[0])
-#This above section gives the mediance and variance of occupancy
-'''            
+
+        occu = []          
      #sorts objects by labels along the given axis       
     data = {
         "temperature": pandas.DataFrame.from_dict(temperature, "index").sort_index(),
@@ -80,15 +61,53 @@ if __name__ == "__main__":
     P = p.parse_args()
 
     file = Path(P.file).expanduser()
-    
-    data = load_data(file)
-    
+   ''' 
+    data = load_data(data.txt)
+ ###
     for k in data:
-        # data[k].plot()
+        if k == 'temperature':
+            print('')
+            print('For office:')
+            print('')
+            print('Temperature Median: ' + str(data[k]['office'].median()))
+            print('Temperature Variance: ' + str(data[k]['office'].var()))
+            print('')
+        if k == 'occupancy':
+            print('Occupancy Median: ' + str(data[k]['office'].median()))
+            print('Occupancy Variance: ' + str(data[k]['office'].var()))
+            print('')
+###
+"""
+              # data[k].plot()
         time = data[k].index
         data[k].hist()
         plt.figure()
         plt.hist(np.diff(time.values).astype(np.int64) // 1000000000)
         plt.xlabel("Time (seconds)")
-    plt.show()
-'''
+            """
+###
+        plt.figure()
+        data[k]['office'].plot.density()
+        plt.title('Probability Density Functions for ' + k)
+        if k == 'temperature':
+            plt.xlabel('Temperature/°C')
+        elif k == 'occupancy':
+            plt.xlabel('No. of People')
+        elif k == 'co2':
+            plt.xlabel('co2 level')
+###
+    time = data['temperature'].index
+    time_series = pandas.Series([t.total_seconds() for t in (time[1:] - time[:-1])])
+    print('')
+    print('Time Interval across all Rooms:')
+    print('')
+    print('Time Interval Mean: ' + str(time_series.mean()))
+    print('Time Interval Variance: ' + str(time_series.var()))
+    print('')
+    plt.figure()
+    time_series.plot.density()
+    plt.title('Probability Density Function For Time Interval')
+    plt.xlabel('Time (seconds)')
+###
+
+    plt.show()   
