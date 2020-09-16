@@ -17,7 +17,7 @@ import typing as T
 import matplotlib.pyplot as plt
 import numpy as np
 
-
+filer = open('data.txt')
 def load_data(data: Path) -> T.Dict[str, pandas.DataFrame]:
 
     temperature = {}
@@ -26,7 +26,8 @@ def load_data(data: Path) -> T.Dict[str, pandas.DataFrame]:
 #I will be leaving myself notes like this to try an understand what is happening
 #r is a command for the opening a file for reading
 #Json.loads  will take a string and returns a json object
-    with open(data, "r") as f:
+'''
+    with open('data.txt', "r") as f:
         for line in f:
             r = json.loads(line)
             room = list(r.keys())[0]
@@ -35,7 +36,10 @@ def load_data(data: Path) -> T.Dict[str, pandas.DataFrame]:
             temperature[time] = {room: r[room]["temperature"][0]}
             occupancy[time] = {room: r[room]["occupancy"][0]}
             co2[time] = {room: r[room]["co2"][0]}
-        temp = []
+'''
+            temp = []
+
+'''
 #so i neeed to make a loop that goes through all the info and organizes it 
 #there are python commands that can calculate the mean and variance for you  
         for k,v in temperature.items():
@@ -47,8 +51,9 @@ def load_data(data: Path) -> T.Dict[str, pandas.DataFrame]:
         print("Median is: ", tempMed[0])
         print("Variance is: ",tempVar[0])
 #The top code should give the median and variance of the temp
-
+'''
         occu = []
+'''
         for k,v in occupancy.items():
             occu.append(list(v.values())[0])
         occuDF = pandas.DataFrame(occu)
@@ -57,7 +62,7 @@ def load_data(data: Path) -> T.Dict[str, pandas.DataFrame]:
         print("Median is: ",occuMedian[0])
         print("Variance is: ",occuVar[0])
 #This above section gives the mediance and variance of occupancy
-            
+'''            
      #sorts objects by labels along the given axis       
     data = {
         "temperature": pandas.DataFrame.from_dict(temperature, "index").sort_index(),
