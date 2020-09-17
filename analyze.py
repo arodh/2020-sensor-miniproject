@@ -62,6 +62,7 @@ if __name__ == "__main__":
             print('')
             print('For office:')
             print('')
+            analyze = analyze.get(office)
             print('Temperature Median: ' + str(data[k]['office'].median()))
             print('Temperature Variance: ' + str(data[k]['office'].var()))
             print('')
