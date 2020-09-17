@@ -63,7 +63,7 @@ if __name__ == "__main__":
     file = Path(P.file).expanduser()
    ''' 
     data = load_data(data.txt)
- ###
+
     for k in data:
         if k == 'temperature':
             print('')
@@ -76,7 +76,6 @@ if __name__ == "__main__":
             print('Occupancy Median: ' + str(data[k]['office'].median()))
             print('Occupancy Variance: ' + str(data[k]['office'].var()))
             print('')
-###
 """
               # data[k].plot()
         time = data[k].index
@@ -84,8 +83,7 @@ if __name__ == "__main__":
         plt.figure()
         plt.hist(np.diff(time.values).astype(np.int64) // 1000000000)
         plt.xlabel("Time (seconds)")
-            """
-###
+"""
 plt.figure()
 data[k]['office'].plot.density()
 plt.title('Probability Density Functions for ' + k)
@@ -96,7 +94,7 @@ elif k == 'occupancy':
 elif k == 'co2':
             
     plt.xlabel('co2 level')
-###
+
     time = data['temperature'].index
     time_series = pandas.Series([t.total_seconds() for t in (time[1:] - time[:-1])])
     print('')
@@ -109,6 +107,5 @@ elif k == 'co2':
     time_series.plot.density()
     plt.title('Probability Density Function For Time Interval')
     plt.xlabel('Time (seconds)')
-###
 
     plt.show()   
