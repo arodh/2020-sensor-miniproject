@@ -103,7 +103,7 @@ if __name__ == "__main__":
             print("mean time differance of " +str(datatype) + " in " +str(room)+ " is " + str(mean))
             print("variance of time differances of " +str(datatype) + " in " +str(room)+ " is " + str(variance))
             
-            
+        rooms = rooms.get(datatypes)   
         print("\n")    
         print("Probability Distribution Functions of the Time Interval")
         Prob_Dis = dict(class1 = np.array(Tdict["class1"]), office = np.array(Tdict["office"]),lab1 = np.array(Tdict["lab1"]))
