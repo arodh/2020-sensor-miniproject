@@ -43,4 +43,4 @@ async def main(port: int, addr: str, max_packets: int, log_file: Path):
             print(data) 
             if log_file !=None:
                 file.write(data)
-                file.write("\n)
+                file.write("\n")
