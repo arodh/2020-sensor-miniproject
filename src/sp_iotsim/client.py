@@ -22,7 +22,10 @@ async def main(port: int, addr: str, max_packets: int, log_file: Path):
 
     if log_file:
         log_file = Path(log_file).expanduser()
-
+        file = log_file.open(mode='a')
+    else:
+        log_file = None
+        
     uri = f"ws://{addr}:{port}"
 
     async with websockets.connect(uri) as websocket:
@@ -31,14 +34,13 @@ async def main(port: int, addr: str, max_packets: int, log_file: Path):
             print(zlib.decompress(qb).decode("utf8"))
         else:
             print(qb)
-#add open here to make a new txt file and the w+ allows the file to recieve and print information
-        f = open("data.txt", "w+")
+       
         for i in range(max_packets):
             data = await websocket.recv()
             if i % 5 == 0:
                 pass
                 # print(f"{i} total messages received")
             print(data) 
-#this will show the data on the command window,,, finally works  
-        f.write(data)
-        f.close()
+            if log_file !=None:
+                file.write(data)
+                file.write("\n)
