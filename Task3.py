@@ -10,6 +10,7 @@ from datetime import datetime
 import typing as T
 import matplotlib.pyplot as plt
 import numpy as np
+import statistics
 
 def load_data(file:Path) ->T.Dict[str, pandas.DataFrame]:
   temperature = {}
