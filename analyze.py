@@ -69,14 +69,29 @@ if __name__ == "__main__":
             print('Occupancy Median: ' + str(data[k]['office'].median()))
             print('Occupancy Variance: ' + str(data[k]['office'].var()))
             print('')
-"""
-              # data[k].plot()
-        time = data[k].index
-        data[k].hist()
-        plt.figure()
-        plt.hist(np.diff(time.values).astype(np.int64) // 1000000000)
-        plt.xlabel("Time (seconds)")
-"""
+        if k == 'temperature':
+            print('')
+            print('For lab1:')
+            print('')
+            print('Temperature Median: ' + str(data[k]['lab1'].median()))
+            print('Temperature Variance: ' + str(data[k]['lab1'].var()))
+            print('')
+        if k == 'occupancy':
+            print('Occupancy Median: ' + str(data[k]['lab1'].median()))
+            print('Occupancy Variance: ' + str(data[k]['lab1'].var()))
+            print('')
+        if k == 'temperature':
+            print('')
+            print('For class1:')
+            print('')
+            print('Temperature Median: ' + str(data[k]['class1'].median()))
+            print('Temperature Variance: ' + str(data[k]['class1'].var()))
+            print('')
+        if k == 'occupancy':
+            print('Occupancy Median: ' + str(data[k]['class1'].median()))
+            print('Occupancy Variance: ' + str(data[k]['class1'].var()))
+            print('')
+
 plt.figure()
 data[k]['office'].plot.density()
 plt.title('Probability Density Functions for ' + k)
