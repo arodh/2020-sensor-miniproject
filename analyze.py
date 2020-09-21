@@ -91,21 +91,28 @@ if __name__ == "__main__":
 
         
     plt.figure()
-    data[k]['office'].plot.density()
-    data[k]['class1'].plot.density()
-    data[k]['lab1'].plot.density()
+    data[co2]['office'].plot.density()
+    data[co2]['class1'].plot.density()
+    data[co2]['lab1'].plot.density()
     plt.title('Probability density Functions for co2')
     plt.xlabel('co2 level')
+    plt.legend()
     
     plt.figure()
-    data[k]['office'].plot.density()
+    data[occupancy]['office'].plot.density()
+    data[occupancy]['class1'].plot.density()
+    data[occupancy]['lab1'].plot.density()
     plt.title('Probability density Functions for Occupancy')
     plt.xlabel('Amt of people')
+    plt.legend()
     
     plt.figure()
-    data[k]['office'].plot.density()
+    data[temperature]['office'].plot.density()
+    data[temperature]['class1'].plot.density()
+    data[temperature]['lab1'].plot.density()
     plt.title('Probability density Functions for Temperature')
     plt.xlabel('Temperature/°C')
+    plt.legend()
 
     time = data['temperature'].index
     time_series = pandas.Series([t.total_seconds() for t in (time[1:] - time[:-1])])
