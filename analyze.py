@@ -91,11 +91,19 @@ if __name__ == "__main__":
 
         
     plt.figure()
-    p1 = sns.kdeplot(data['office'],color='r')
-    p2 = sns.kdeplot(data['lab1'],color='b')
-    p3 = sns.kdeplot(data['class1'],color='g')
+    data[k]['office'].plot.density()
     plt.title('Probability density Functions for co2')
     plt.xlabel('co2 level')
+    
+    plt.figure()
+    data[k]['office'].plot.density()
+    plt.title('Probability density Functions for Occupancy')
+    plt.xlabel('Amt of people')
+    
+    plt.figure()
+    data[k]['office'].plot.density()
+    plt.title('Probability density Functions for Temperature')
+    plt.xlabel('Temperature/°C')
 
     time = data['temperature'].index
     time_series = pandas.Series([t.total_seconds() for t in (time[1:] - time[:-1])])
