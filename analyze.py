@@ -88,8 +88,9 @@ if __name__ == "__main__":
             print('Median: ' + str(data[k]['class1'].median()))
             print('Variance: ' + str(data[k]['class1'].var()))
 
+        
     plt.figure()
-    dco2 = df.plot.kde('office', 'lab1', 'class1')
+    plt.kde('office', 'lab1', 'class1')
     plt.title('Probability density Functions for co2')
     plt.xlabel('co2 level')
     
