@@ -36,35 +36,10 @@ if __name__ == "__main__":
   
   rooms = ["lab1", "class1","office"] 
   stds = 1.5 
-  
-  for room in rooms: 
-    print("Finding anomalies: " + room) 
-    temps = data["temperature"][room].dropna() 
-    rmean = statistics.mean(temps) 
-    rstdev = statistics.stdev(temps) 
-    badsize=0 
-    size=temps.size 
-    print("Number of Data Points "+str(size)) 
-    to_drop = [] 
-    for x in range(0, temps.size): 
-      limit = rstdev *stds 
-      temp = temps.iloc[x] 
-      dev = abs(temp - rmean) 
-      
-      if dev > limit: 
-        badsize=badsize +1 
-        print("Error: outlier") 
-        print(" Temperature: " + str(temps[x])) 
-        to_drop += [temps.index[x]] 
-        temps = temps.drop(to_drop) 
-        
-        percent = (badsize/size)*100 
-        print("Percent of Bad Data Points is " + str(percent)) 
-        median = statistics.median(temps) 
-        variance = statistics.variance (temps) 
-        print("The median temperature is "+ str(median)) 
-        print("The variance of the temperature is "+ str(variance)) #mean and variance print("\n")
-        
+# there should be a loop that only retains the temperature points I want,(the points that arent outliers)
+#from this file you then analyze it 
+#I should then print out the bad data to see what time of temperatures the simulation is producing.
+#then with the good data I can find the temp median and variance 
 '''
 good_temp=[]
 bad_temp=[]
