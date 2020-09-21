@@ -89,23 +89,13 @@ if __name__ == "__main__":
             print('Variance: ' + str(data[k]['class1'].var()))
 
     df = sns.load_data('data.txt')    
- #   plt.figure()
+    plt.figure()
     p1 = kdeplot(df['office'],color='r')
     p2 = kdeplot(df['lab1'],color='b')
     p3 = kdeplot(df['class1'],color='g')
     plt.title('Probability density Functions for co2')
     plt.xlabel('co2 level')
-'''    
-    plt.figure()
-    data[k]['office','lab1','class1'].plot.density()
-    plt.title('Probability density Functions for Occupancy')
-    plt.xlabel('Amt of people')
-    
-    plt.figure()
-    data[k]['office','lab1','class1'].plot.density()
-    plt.title('Probability density Functions for Temperature')
-    plt.xlabel('Temperature/°C')
-'''
+
     time = data['temperature'].index
     time_series = pandas.Series([t.total_seconds() for t in (time[1:] - time[:-1])])
     print('')
