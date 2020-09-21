@@ -59,34 +59,31 @@ if __name__ == "__main__":
 
     for k in data:
         if k == 'temperature':
-            print('')
             print('Temperatures')
+            print('')
             print('For Office:')
             print('Median: ' + str(data[k]['office'].median()))
             print('Variance: ' + str(data[k]['office'].var()))
         if k == 'occupancy':
             print('')
             print('Occupancies')
+            print('')
             print('For office:')
             print('Median: ' + str(data[k]['office'].median()))
             print('Variance: ' + str(data[k]['office'].var()))
         if k == 'temperature':
-            print('')
             print('For lab1:')
             print('Median: ' + str(data[k]['lab1'].median()))
             print('Variance: ' + str(data[k]['lab1'].var()))
         if k == 'occupancy':
-            print('')
             print('For lab1:')
             print('Median: ' + str(data[k]['lab1'].median()))
             print('Variance: ' + str(data[k]['lab1'].var()))
         if k == 'temperature':
-            print('')
             print('For class1:')
             print('Median: ' + str(data[k]['class1'].median()))
             print('Variance: ' + str(data[k]['class1'].var()))
         if k == 'occupancy':
-            print('')
             print('For class1:')
             print('Median: ' + str(data[k]['class1'].median()))
             print('Variance: ' + str(data[k]['class1'].var()))
@@ -98,8 +95,7 @@ if k == 'temperature':
     plt.xlabel('Temperature/°C')
 elif k == 'occupancy':
     plt.xlabel('No. of People')
-elif k == 'co2':
-            
+elif k == 'co2':       
     plt.xlabel('co2 level')
 
     time = data['temperature'].index
