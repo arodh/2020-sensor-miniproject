@@ -2,7 +2,7 @@
 #So i have to filter out the bad temperatures that are too low or too high
 
 #algorithm for detecting anomalies
-impot pandas 
+import pandas 
 from pathlib import path 
 import argparse
 import json
