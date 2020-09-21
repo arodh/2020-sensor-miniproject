@@ -64,6 +64,8 @@ for k in data:
   else:
     good_temp.append(k)
     
+ print('Bad Temperatures:'+str(bad_temp))
+    
  for k in good_temp:
     if k == 'temperature':
             print('Temperatures')
