@@ -3,7 +3,7 @@
 
 #algorithm for detecting anomalies
 import pandas 
-from pathlib import path 
+from pathlib import Path 
 import argparse
 import json
 from datetime import datetime
