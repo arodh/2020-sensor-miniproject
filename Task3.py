@@ -19,7 +19,7 @@ def load_data(file:Path) ->T.Dict[str, pandas.DataFrame]:
     for line in f:
       r = json.loads(line)
       room = list(r.keys())[0]
-      temperature[time] = {room: r[room]["temperature"][0]}
+      temperature = {room: r[room]["temperature"][0]}
       
   data = {"temperature": pandas.DataFrame.from_dict(temperature, "index").sort_index()}
   return data
