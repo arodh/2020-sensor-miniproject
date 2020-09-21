@@ -97,19 +97,19 @@ if __name__ == "__main__":
     plt.title('Probability density Functions for co2')
     plt.xlabel('co2 level')
     plt.legend()
-'''    
+    
     plt.figure()
-    data[occupancy]['office'].plot.density()
-    data[occupancy]['class1'].plot.density()
-    data[occupancy]['lab1'].plot.density()
+    data['occupancy']['office'].plot.density()
+    data['occupancy']['class1'].plot.density()
+    data['occupancy']['lab1'].plot.density()
     plt.title('Probability density Functions for Occupancy')
     plt.xlabel('Amt of people')
     plt.legend()
     
     plt.figure()
-    data[temperature]['office'].plot.density()
-    data[temperature]['class1'].plot.density()
-    data[temperature]['lab1'].plot.density()
+    data['temperature']['office'].plot.density()
+    data['temperature']['class1'].plot.density()
+    data['temperature']['lab1'].plot.density()
     plt.title('Probability density Functions for Temperature')
     plt.xlabel('Temperature/°C')
     plt.legend()
@@ -126,5 +126,5 @@ if __name__ == "__main__":
     time_series.plot.density()
     plt.title('Probability Density Function For Time Interval')
     plt.xlabel('Time (seconds)')
-'''
-plt.show()   
+
+    plt.show()   
