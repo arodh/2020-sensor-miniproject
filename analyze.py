@@ -88,19 +88,18 @@ if __name__ == "__main__":
             print('Median: ' + str(data[k]['class1'].median()))
             print('Variance: ' + str(data[k]['class1'].var()))
 
-plt.figure()
-data[k]['office'].plot.density()
-plt.title('Probability Density Functions for ' + k)
-if k == 'co2':       
+    plt.figure()
+    df.plot.kde('office', 'lab1', 'class1')
+    plt.title('Probability density Functions for co2')
     plt.xlabel('co2 level')
     
     plt.figure()
-    data[k]['office, lab1, class1'].plot.density()
+    data[k]['office','lab1','class1'].plot.density()
     plt.title('Probability density Functions for Occupancy')
     plt.xlabel('Amt of people')
     
     plt.figure()
-    data[k]['office, lab1, class1'].plot.density()
+    data[k]['office','lab1','class1'].plot.density()
     plt.title('Probability density Functions for Temperature')
     plt.xlabel('Temperature/°C')
 
