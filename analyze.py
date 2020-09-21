@@ -89,7 +89,7 @@ if __name__ == "__main__":
             print('Median: ' + str(data[k]['class1'].median()))
             print('Variance: ' + str(data[k]['class1'].var()))
 
-        
+   #Bottom plots are for part three of task 2      
     plt.figure()
     data['co2']['office'].plot.density()
     data['co2']['class1'].plot.density()
