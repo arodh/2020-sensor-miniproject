@@ -12,35 +12,46 @@ import matplotlib.pyplot as plt
 import numpy as np
 import statistics
 
-def load_data(file:Path) ->T.Dict[str, pandas.DataFrame]:
-  temperature = {}
-  
-  with open(file, "r") as f:
-    for line in f:
-      r = json.loads(line)
-      room = list(r.keys())[0]
-      temperature = {room: r[room]["temperature"][0]}
-      
-  data = {"temperature": pandas.DataFrame.from_dict(temperature, "index").sort_index()}
-  return data
 
-if __name__ == "__main__": 
-  p = argparse.ArgumentParser(description="load and analyze IoT JSON data")
-  p.add_argument("file", help="path to JSON data file") 
-  P = p.parse_args() 
-  
-  file = Path(P.file).expanduser() 
-  
-  #Get data 
-  data = load_data(file) 
-  
-  rooms = ["lab1", "class1","office"] 
-  stds = 1.5 
+filer = open('data.txt')
+def load_data(file: Path) -> T.Dict[str, pandas.DataFrame]:
+
+    temperature = {}
+    occupancy = {}
+    co2 = {}
+
+    with open('data.txt', "r") as f:
+        for line in f:
+            r = json.loads(line)
+            room = list(r.keys())[0]
+            time = datetime.fromisoformat(r[room]["time"])
+
+            temperature[time] = {room: r[room]["temperature"][0]}
+            occupancy[time] = {room: r[room]["occupancy"][0]}
+            co2[time] = {room: r[room]["co2"][0]}
+
+            temp = []
+
+ occu = []          
+     #sorts objects by labels along the given axis       
+    data = {
+        "temperature": pandas.DataFrame.from_dict(temperature, "index").sort_index(),
+        "occupancy": pandas.DataFrame.from_dict(occupancy, "index").sort_index(),
+        "co2": pandas.DataFrame.from_dict(co2, "index").sort_index(),
+    }
+
+    return data
+
+
+if __name__ == "__main__":
+    data = load_data('data.txt')
+
 # there should be a loop that only retains the temperature points I want,(the points that arent outliers)
 #from this file you then analyze it 
 #I should then print out the bad data to see what time of temperatures the simulation is producing.
 #then with the good data I can find the temp median and variance 
-'''
+#The bottom code is where I'm having trouble in sesperating the ooutliers from the temp data i want
+
 good_temp=[]
 bad_temp=[]
 filer = open('data.txt')
@@ -52,4 +63,19 @@ for k in data:
     bad_temp.append(k)
   else:
     good_temp.append(k)
-'''    
+    
+ for k in good_temp:
+    if k == 'temperature':
+            print('Temperatures')
+            print('')
+            print('For Office:')
+            print('Median: ' + str(data[k]['office'].median()))
+            print('Variance: ' + str(data[k]['office'].var()))
+    if k == 'temperature':
+            print('For lab1:')
+            print('Median: ' + str(data[k]['lab1'].median()))
+            print('Variance: ' + str(data[k]['lab1'].var()))  
+    if k == 'temperature':
+            print('For class1:')
+            print('Median: ' + str(data[k]['class1'].median()))
+            print('Variance: ' + str(data[k]['class1'].var()))
