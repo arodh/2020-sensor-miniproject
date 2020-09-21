@@ -91,13 +91,13 @@ if __name__ == "__main__":
 
         
     plt.figure()
-    data[co2]['office'].plot.density()
-    data[co2]['class1'].plot.density()
-    data[co2]['lab1'].plot.density()
+    data['co2']['office'].plot.density()
+    data['co2']['class1'].plot.density()
+    data['co2']['lab1'].plot.density()
     plt.title('Probability density Functions for co2')
     plt.xlabel('co2 level')
     plt.legend()
-    
+'''    
     plt.figure()
     data[occupancy]['office'].plot.density()
     data[occupancy]['class1'].plot.density()
@@ -126,5 +126,5 @@ if __name__ == "__main__":
     time_series.plot.density()
     plt.title('Probability Density Function For Time Interval')
     plt.xlabel('Time (seconds)')
-
+'''
     plt.show()   
