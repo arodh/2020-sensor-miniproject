@@ -16,6 +16,7 @@ from datetime import datetime
 import typing as T
 import matplotlib.pyplot as plt
 import numpy as np
+import seaborn as sns
 
 filer = open('data.txt')
 def load_data(file: Path) -> T.Dict[str, pandas.DataFrame]:
@@ -90,9 +91,9 @@ if __name__ == "__main__":
 
         
     plt.figure()
-    p1 = kdeplot(data['office'],color='r')
-    p2 = kdeplot(data['lab1'],color='b')
-    p3 = kdeplot(data['class1'],color='g')
+    p1 = sns.kdeplot(data['office'],color='r')
+    p2 = sns.kdeplot(data['lab1'],color='b')
+    p3 = sns.kdeplot(data['class1'],color='g')
     plt.title('Probability density Functions for co2')
     plt.xlabel('co2 level')
 
