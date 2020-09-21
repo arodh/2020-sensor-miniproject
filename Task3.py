@@ -60,7 +60,8 @@ onestd = statistics.pstdev(data)
 for k in data:
   if ((k-statistics.mean(data))>=onestd*3):
     bad_temp.append(k)
-    print('Bad Temperatures:'+str(bad_temp))
+    print('Bad Temperatures:')
+    print(bad_temp)
   else:
     good_temp.append(k)
     
