@@ -15,7 +15,7 @@ import statistics
 def load_data(file:Path) ->T.Dict[str, pandas.DataFrame]:
   temperature = {}
   
-  wwith open(file, "r") as f:
+  with open(file, "r") as f:
     for line in f:
       r = json.loads(line)
       room = list(r.keys())[0]
