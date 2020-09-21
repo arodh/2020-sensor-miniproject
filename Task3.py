@@ -78,4 +78,4 @@ for k in data:
     bad_temp.append(k)
   else:
     good_temp.append(k)
-    
+'''    
