@@ -90,7 +90,7 @@ if __name__ == "__main__":
 
         
     plt.figure()
-    plt.kde('office', 'lab1', 'class1')
+    data[k]['office','lab1','class1'].plot.density()
     plt.title('Probability density Functions for co2')
     plt.xlabel('co2 level')
     
