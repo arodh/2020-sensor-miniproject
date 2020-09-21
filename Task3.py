@@ -22,7 +22,7 @@ def load_data(file:Path) ->T.Dict[str, pandas.DataFrame]:
       time = datetime.fromisoformat(r[room]["time"])
       temperature[time] = {room: r[room]["temperature"][0]}
       
-  data = {temperature": pandas.DataFrame.from_dict(temperature, "index").sort_index()}
+  data = {"temperature": pandas.DataFrame.from_dict(temperature, "index").sort_index()}
   return data
 
 good_temp=[]
