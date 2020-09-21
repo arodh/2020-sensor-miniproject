@@ -19,7 +19,6 @@ def load_data(file:Path) ->T.Dict[str, pandas.DataFrame]:
     for line in f:
       r = json.loads(line)
       room = list(r.keys())[0]
-      time = datetime.fromisoformat(r[room]["time"])
       temperature[time] = {room: r[room]["temperature"][0]}
       
   data = {"temperature": pandas.DataFrame.from_dict(temperature, "index").sort_index()}
@@ -55,7 +54,7 @@ if __name__ == "__main__":
       if dev > limit: 
         badsize=badsize +1 
         print("Error: outlier") 
-        print("Time: " + str(temps.index[x]) + " Temperature: " + str(temps[x])) 
+        print(" Temperature: " + str(temps[x])) 
         to_drop += [temps.index[x]] 
         temps = temps.drop(to_drop) 
         
