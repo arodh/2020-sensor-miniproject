@@ -31,8 +31,7 @@ def load_data(file: Path) -> T.Dict[str, pandas.DataFrame]:
             co2[time] = {room: r[room]["co2"][0]}
 
             temp = []
-
- occu = []          
+         
      #sorts objects by labels along the given axis       
     data = {
         "temperature": pandas.DataFrame.from_dict(temperature, "index").sort_index(),
