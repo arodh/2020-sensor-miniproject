@@ -88,11 +88,11 @@ if __name__ == "__main__":
             print('Median: ' + str(data[k]['class1'].median()))
             print('Variance: ' + str(data[k]['class1'].var()))
 
-    df = sns.load_data('data.txt')    
+        
     plt.figure()
-    p1 = kdeplot(df['office'],color='r')
-    p2 = kdeplot(df['lab1'],color='b')
-    p3 = kdeplot(df['class1'],color='g')
+    p1 = kdeplot(data['office'],color='r')
+    p2 = kdeplot(data['lab1'],color='b')
+    p3 = kdeplot(data['class1'],color='g')
     plt.title('Probability density Functions for co2')
     plt.xlabel('co2 level')
 
