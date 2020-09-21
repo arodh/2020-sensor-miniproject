@@ -10,8 +10,8 @@ Task 0: Set-up
 I was able to run the files on my computer. The issued greeting was: ECE Senior Capstone IOT simulator
 
 Task 2: Analysis
-![task2](task2.ng)
-![task2plot](task2plot.png)
+![C:\Users\angel\OneDrive\Pictures\task2.PNG](task2.ng)
+![C:\Users\angel\OneDrive\Pictures\Screenshots\task2plot.png](task2plot.png)
 
 
 Task 3: Design
