@@ -65,7 +65,7 @@ for k in data:
     good_temp.append(k)
     
     
- for k in good_temp:
+for k in good_temp:
     if k == 'temperature':
             print('Temperatures')
             print('')
