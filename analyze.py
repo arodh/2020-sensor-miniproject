@@ -93,9 +93,9 @@ data[k]['office'].plot.density()
 plt.title('Probability Density Functions for ' + k)
 if k == 'temperature':
     plt.xlabel('Temperature/°C')
-elif k == 'occupancy':
+if k == 'occupancy':
     plt.xlabel('No. of People')
-elif k == 'co2':       
+if k == 'co2':       
     plt.xlabel('co2 level')
 
     time = data['temperature'].index
