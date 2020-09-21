@@ -14,6 +14,16 @@ import statistics
 
 def load_data(file:Path) ->T.Dict[str, pandas.DataFrame]:
   temperature = {}
+  
+  wwith open(file, "r") as f:
+    for line in f:
+      r = json.loads(line)
+      room = list(r.keys())[0]
+      time = datetime.fromisoformat(r[room]["time"])
+      temperature[time] = {room: r[room]["temperature"][0]}
+      
+  data = {temperature": pandas.DataFrame.from_dict(temperature, "index").sort_index()}
+  return data
 
 good_temp=[]
 bad_temp=[]
