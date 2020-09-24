@@ -16,7 +16,7 @@ Task 2: Analysis
 ![](images/task2plot.png)
 
 Task 3: Design
-	A persistent change in temperature does not indicate a failed sensor. These changes can occur due to the location of the sensor. These physical changes can occur to human activity occurring close to the sensor, or it may even indicate the change in the rooms environment, such as windows being opened and closed, or the thermometer being changed manually. Each room type will change according to the season and what type of systems are integrated into the rooms. An office wil; most likely have a heater and AC system. Classrooms from my experience change depending on the building. Olders buildings with no central systems will be harder to manage since the temperature can vary from each classroom.
+	A persistent change in temperature does not indicate a failed sensor. These changes can occur due to the location of the sensor. These physical changes can occur to human activity occurring close to the sensor, or it may even indicate the change in the rooms environment, such as windows being opened and closed, or the thermometer being changed manually. Each room type will change according to the season and what type of systems are integrated into the rooms. An office wil; most likely have a heater and AC system. Classrooms from my experience change depending on the building. Olders buildings with no central systems will be harder to manage since the temperature can vary from each classroom. My code for task 3 was giving me an error that I was unable to figure out. 
 
 ![](images/task3error.PNG)
 
